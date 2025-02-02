@@ -1,15 +1,27 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import { lazy, Suspense } from "react";
 
-import './App.css'
+const OceanQuiz = lazy(() => import("./pages/quiz"));
 
 function App() {
-
   return (
     <>
-    <div className=''>
-      Project setup
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <OceanQuiz />
+              </Suspense>
+            }
+          />
+          <Route path="*" element={<div>Not Found</div>} />
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
