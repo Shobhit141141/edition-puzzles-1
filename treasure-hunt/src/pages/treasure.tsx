@@ -38,9 +38,9 @@ const Treasure = () => {
         <p className="text-3xl font-bold text-white">
           Congratulations! You've found the treasure!
         </p>
-        <div className="relative w-fit ml-auto mr-auto p-3 mt-5">
-          <img src={sticker} alt="sticker" className="pl-2 pr-2 ml-auto mr-auto h-1/4" />
-          <div className={`absolute top-0 bg-blue-200 rounded-xl h-full max-sm:w-11/12 w-full text-blue-800 text-2xl font-semibold flex items-center justify-center ${opacity === 100 ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 hover:cursor-pointer`} onClick={handleClick}>
+        <div className="relative w-fit ml-auto mr-auto max-sm:ml-2 max-sm:mr-2 mt-5">
+          <img src={sticker} alt="sticker" className="ml-auto mr-auto h-1/4" />
+          <div className={`absolute top-0 left-0 bg-blue-200 rounded-xl h-full w-full text-blue-800 text-2xl font-semibold flex items-center justify-center ${opacity === 100 ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 hover:cursor-pointer`} onClick={handleClick}>
             Tap to reveal
           </div>
         </div>
