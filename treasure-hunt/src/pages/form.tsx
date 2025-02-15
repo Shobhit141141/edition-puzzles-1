@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import seaImg from "../assets/sea.jpg";
 
 const Form = () => {
   const [password, setPassword] = useState("");
@@ -25,15 +26,15 @@ const Form = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen w-full flex items-center justify-center bg-no-repeat bg-center bg-cover" style={{ backgroundImage: `url(${seaImg})` }}>
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-md p-8 bg-white rounded-lg shadow-md"
+        className="max-sm:mr-2 max-sm:ml-2 w-full max-w-md p-8 max-sm:pr-4 max-sm:pl-4 bg-blue-100 border-2 border-white rounded-lg shadow-md"
       >
         <div className="mb-6">
           <label
             htmlFor="password"
-            className="block mb-2 text-sm font-medium text-gray-700"
+            className="text-blue-900 block mb-2 text-sm font-medium"
           >
             Password
           </label>
@@ -43,7 +44,7 @@ const Form = () => {
             autoComplete="off"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
+            className="w-full px-3 py-2 text-blue-900 border rounded-lg focus:outline-none focus:border-blue-500"
             placeholder="Enter your password"
             required
           />
@@ -51,7 +52,7 @@ const Form = () => {
         {error && <p className="mb-4 text-sm text-red-600">{error}</p>}
         <button
           type="submit"
-          className="w-full px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+          className="hover:cursor-pointer w-full px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
         >
           Submit
         </button>
