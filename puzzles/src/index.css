@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nabla&family=Piedra&family=Press+Start+2P&family=Rubik+Iso&display=swap');
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    background-image: url('background.png');
+    background-size: cover;
+    /* Ensures the image covers the whole screen */
+    background-position: center;
+    /* Centers the image */
+    background-repeat: no-repeat;
+    /* Prevents tiling */
+    background-attachment: fixed;
+    /* Keeps the image fixed when scrolling */
+}
+
+.pirata-one-regular {
+    font-family: "Pirata One";
+}
+
+.mountains-of-christmas {
+    font-family: "Mountains of Christmas", serif;
+}
+
+.rubik-iso {
+    font-family: "Rubik Iso", sans-serif;
+}
+
+.font-piedra {
+    font-family: "Piedra", serif;
+}
