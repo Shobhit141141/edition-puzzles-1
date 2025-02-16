@@ -7,11 +7,11 @@ function App() {
         to='/crosswords'
         className='text-4xl text-center text-white p-4 bg-[#292727] mountains-of-christmas font-bold rounded-lg'
       >
-        CrossWords
+        CrossWord
       </Link>
       <Link
         to='/connections'
-        className='text-4xl font-bold text-center text-white p-4 mountains-of-christmas font-bold bg-[#292727]'
+        className='text-4xl font-bold text-center text-white p-4 mountains-of-christmas rounded-lg bg-[#292727]'
       >
         Connections
       </Link>

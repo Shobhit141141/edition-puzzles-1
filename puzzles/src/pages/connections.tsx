@@ -47,21 +47,21 @@ leading-relaxed mountains-of-christmas font-bold text-2xl">
             </p>
             <br />
             <div className="w-full flex flex-col gap-8 p-3">
-                <h1 className="text-2xl md:text-4xl text-[#f5e10c] pl-4 md:pl-10 font-bold press-start-2p-regular">Fictional Sea Characters</h1>
+                <h1 className="text-2xl md:text-4xl text-[#f5e10c] pl-2 md:pl-10 font-bold press-start-2p-regular">Fictional Sea Characters</h1>
                 <ul className="flex flex-row text-xl md:text-2xl text-white pl-4 md:pl-10 mountains-of-christmas font-bold">
                     <li className="pl-4 md:pl-10 font-bold">Squidward</li>
                     <li className="pl-4 md:pl-10 font-bold">Vaporeon</li>
                     <li className="pl-4 md:pl-10 font-bold">Undyne</li>
                     <li className="text-white pl-4 md:pl-10 font-bold">Darwin Watterson</li>
                 </ul>
-                <h1 className="text-xl md:text-4xl text-[#f5e10c] pl-4 md:pl-10 font-bold press-start-2p-regular">Fictional Pirates</h1>
+                <h1 className="text-2xl md:text-4xl text-[#f5e10c] pl-2 md:pl-10 font-bold press-start-2p-regular">Fictional Pirates</h1>
                 <ul className="flex flex-row text-base md:text-2xl text-white pl-4 md:pl-10 mountains-of-christmas font-bold">
                     <li className="pl-4 md:pl-10 font-bold">Sinbad</li>
                     <li className="pl-4 md:pl-10 font-bold">Jack Sparrow</li>
                     <li className="pl-4 md:pl-10 font-bold">Odysseus</li>
                     <li className="text-white pl-4 md:pl-10 font-bold">Captain Hook</li>
                 </ul>
-                <h1 className="text-xl md:text-4xl text-[#f5e10c] pl-4 md:pl-10 font-bold press-start-2p-regular">Real Pirates</h1>
+                <h1 className="text-2xl md:text-4xl text-[#f5e10c] pl-2 md:pl-10 font-bold press-start-2p-regular">Real Pirates</h1>
                 <ul className="flex flex-row text-base md:text-2xl text-white pl-4 md:pl-10 mountains-of-christmas font-bold">
                     <li className="pl-4 md:pl-10 font-bold">Blackbeard</li>
                     <li className="pl-4 md:pl-10 font-bold">Zheng Yi Sao</li>
