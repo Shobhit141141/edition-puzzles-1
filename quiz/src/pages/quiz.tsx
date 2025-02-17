@@ -51,11 +51,18 @@ const OceanQuiz = () => {
   };
 
   const getWinningCharacter = (): keyof typeof characterDescriptions => {
-    return Object.entries(scores).reduce(
-      (max, [character, score]) =>
-        score > max.score ? { character: character as keyof Scores, score } : max,
-      { character: "captain" as keyof Scores, score: -1 }
-    ).character;
+    const maxScore = Math.max(...Object.values(scores));
+    const winningCharacters = Object.keys(scores).filter(
+      (character) => scores[character as keyof Scores] === maxScore
+    );
+    //if winning end roles are more than 1 select a random
+    if (winningCharacters.length === 1) {
+      return winningCharacters[0] as keyof typeof characterDescriptions;
+    } else {
+      // Handle tie by randomly selecting a character
+      const randomIndex = Math.floor(Math.random() * winningCharacters.length);
+      return winningCharacters[randomIndex] as keyof typeof characterDescriptions;
+    }
   };
 
   return (
