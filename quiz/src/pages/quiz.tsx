@@ -70,6 +70,21 @@ const OceanQuiz = () => {
       <div className="max-w-2xl mx-auto bg-white/90 rounded-lg shadow-xl p-8">
         {!showResult ? (
           <div>
+            <div className="mb-8">
+              <h2 className="text-3xl font-bold text-blue-800 mb-2">
+                Question {currentQuestion + 1} of {questions.length}
+              </h2>
+              <div className="h-2 bg-blue-200 rounded-full">
+                <div
+                  className="h-2 bg-blue-600 rounded-full transition-all duration-300"
+                  style={{
+                    width: `${
+                      ((currentQuestion + 1) / questions.length) * 100
+                    }%`,
+                  }}
+                />
+              </div>
+            </div>
             <h3 className="text-xl text-blue-900 mb-6">
               {questions[currentQuestion].question}
             </h3>
