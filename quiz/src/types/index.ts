@@ -1,13 +1,13 @@
 interface Option {
   text: string;
-  scores: Record<string, number>;
+  scores: Scores;
 }
 
 interface Scores {
-  dolphin: number;
-  octopus: number;
-  seahorse: number;
-  turtle: number;
+  captain: number;
+  navigator: number;
+  deckhand: number;
+  mermaid: number;
 }
 
-export type { Option, Scores };  
+export type { Option, Scores };

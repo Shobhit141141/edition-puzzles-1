@@ -3,45 +3,43 @@ import { MdOutlineRefresh } from "react-icons/md";
 import { questions } from "../content/questions";
 import { Option, Scores } from "../types";
 
-
-
 const OceanQuiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scores, setScores] = useState({
-    dolphin: 0,
-    octopus: 0,
-    seahorse: 0,
-    turtle: 0,
+    captain: 0,
+    navigator: 0,
+    deckhand: 0,
+    mermaid: 0,
   });
   const [showResult, setShowResult] = useState(false);
 
-  const creatureDescriptions = {
-    dolphin: {
-      title: "Playful Dolphin",
+  const characterDescriptions = {
+    captain: {
+      title: "Bold Captain",
       description:
-        "You're social, intelligent, and love to have fun! Like a dolphin, you're great at working with others and bringing joy to those around you.",
+        "You're bold and decisive, a natural leader who is confident and thrives under pressure. You are a visionary and a determinist and makes tough calls for the greater good.",
     },
-    octopus: {
-      title: "Clever Octopus",
+    navigator: {
+      title: "Analytical Navigator",
       description:
-        "You're brilliant, adaptable, and creative! Like an octopus, you're great at solving problems and thinking outside the box.",
+        "You're analytical and detail-oriented, always looking for the best possible solution to any problem. You enjoy problem-solving and stay calm and composed under any situation.",
     },
-    seahorse: {
-      title: "Graceful Seahorse",
+    deckhand: {
+      title: "Energetic Deckhand",
       description:
-        "You're gentle, patient, and go with the flow! Like a seahorse, you have a calm presence and are in tune with your surroundings.",
+        "You're energetic and enthusiastic, extremely hardworking and have a very strong can-do attitude. You are practical, adaptable, and love working as part of a team, being the glue that holds the crew together.",
     },
-    turtle: {
-      title: "Wise Sea Turtle",
+    mermaid: {
+      title: "Creative Mermaid",
       description:
-        "You're steady, peaceful, and wise! Like a sea turtle, you take life at your own pace and make thoughtful decisions.",
+        "You're creative and free-spirited, imaginative, and adventurous. You dream of exploring the secrets of the sea and express your inner child carefreely.",
     },
   };
 
   const handleAnswer = (option: Option) => {
     const newScores: Scores = { ...scores };
-    Object.entries(option.scores).forEach(([creature, score]) => {
-      newScores[creature as keyof Scores] += score;
+    Object.entries(option.scores).forEach(([character, score]) => {
+      newScores[character as keyof Scores] += score;
     });
     setScores(newScores);
 
@@ -52,17 +50,19 @@ const OceanQuiz = () => {
     }
   };
 
-  const getWinningCreature = (): keyof typeof creatureDescriptions => {
-    return Object.entries(scores).reduce(
-      (max, [creature, score]) =>
-        score > max.score ? { creature: creature as keyof Scores, score } : max,
-      { creature: "dolphin" as keyof Scores, score: -1 }
-    ).creature;
-  };
-
-  const getProgressPercentage = (creatureScore: number): number => {
-    const maxPossibleScore: number = questions.length * 3;
-    return (creatureScore / maxPossibleScore) * 100;
+  const getWinningCharacter = (): keyof typeof characterDescriptions => {
+    const maxScore = Math.max(...Object.values(scores));
+    const winningCharacters = Object.keys(scores).filter(
+      (character) => scores[character as keyof Scores] === maxScore
+    );
+    //if winning end roles are more than 1 select a random
+    if (winningCharacters.length === 1) {
+      return winningCharacters[0] as keyof typeof characterDescriptions;
+    } else {
+      // Handle tie by randomly selecting a character
+      const randomIndex = Math.floor(Math.random() * winningCharacters.length);
+      return winningCharacters[randomIndex] as keyof typeof characterDescriptions;
+    }
   };
 
   return (
@@ -85,7 +85,6 @@ const OceanQuiz = () => {
                 />
               </div>
             </div>
-
             <h3 className="text-xl text-blue-900 mb-6">
               {questions[currentQuestion].question}
             </h3>
@@ -106,17 +105,16 @@ const OceanQuiz = () => {
         ) : (
           <div>
             <h2 className="text-3xl font-bold text-blue-800 mb-8">
-              You are a {creatureDescriptions[getWinningCreature()].title}!
+              You are a {characterDescriptions[getWinningCharacter()].title}!
             </h2>
             <p className="text-lg text-blue-900 mb-8">
-              {creatureDescriptions[getWinningCreature()].description}
+              {characterDescriptions[getWinningCharacter()].description}
             </p>
 
             <div className="flex w-full place-items-center">
-              
               <button
                 onClick={() => {
-                  setScores({ dolphin: 0, octopus: 0, seahorse: 0, turtle: 0 });
+                  setScores({ captain: 0, navigator: 0, deckhand: 0, mermaid: 0 });
                   setCurrentQuestion(0);
                   setShowResult(false);
                 }}
@@ -128,23 +126,6 @@ const OceanQuiz = () => {
             </div>
           </div>
         )}
-
-        <div className="mt-8 space-y-4">
-          {Object.entries(scores).map(([creature, score]) => (
-            <div key={creature} className="space-y-2">
-              <div className="flex items-center justify-between text-blue-800">
-                <span className="capitalize">{creature}</span>
-                <span>{Math.round(getProgressPercentage(score))}%</span>
-              </div>
-              <div className="h-4 bg-blue-100 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-blue-600 rounded-full transition-all duration-500"
-                  style={{ width: `${getProgressPercentage(score)}%` }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );
