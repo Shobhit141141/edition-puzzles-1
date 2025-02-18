@@ -26,7 +26,7 @@ const CrossWords = () => {
       </Link>
       <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen lg:h-screen overflow-hidden text-white px-4">
         {/* Crossword Image */}
-        <img src="/Crossword.svg" className="w-full max-w-md lg:max-w-[40vw] object-contain" />
+        <img src="/crossword.svg" className="w-full max-w-md lg:max-w-[40vw] object-contain" />
 
         {/* Clues List */}
         <div className="lg:h-full flex flex-col justify-center items-center lg:w-1/2 mt-0 pt-0">
